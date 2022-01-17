@@ -44,4 +44,9 @@ class ReviewsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findReviewsRestaurants($id=null) {
+        return $this->where(['restaurant_id' => $id])
+                    ->findAll();
+    }
 }

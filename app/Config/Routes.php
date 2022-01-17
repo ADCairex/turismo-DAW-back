@@ -54,6 +54,10 @@ $routes->group('rest', function ($routes) {
     //---------- VIDEOS -------------------
     $routes->get('video/(:any)', 'VideosController::getVideo/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('video', 'VideosController::getVideo', ['namespace' => API_REST_NAMESPACE]);
+
+    //---------- REVIEWS ------------------
+    $routes->get('review/(:any)', 'ReviewsController::getReviews/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('review', 'ReviewsController::getReviews', ['namespace' => API_REST_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 
