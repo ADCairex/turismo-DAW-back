@@ -50,6 +50,10 @@ $routes->group('rest', function ($routes) {
     //---------- NEWS ---------------------
     $routes->get('new/(:any)', 'NewsController::getNew/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('new', 'NewsController::getNew', ['namespace' => API_REST_NAMESPACE]);
+
+    //---------- VIDEOS -------------------
+    $routes->get('video/(:any)', 'VideosController::getVideo/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('video', 'VideosController::getVideo', ['namespace' => API_REST_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 

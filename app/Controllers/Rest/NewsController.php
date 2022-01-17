@@ -15,16 +15,16 @@ class NewsController extends ResourceController
             if($id) {
                 $new = $newM->findNews($id);
                 if ($new) {
-                    return $this->respond($new, 200, 'Restaurante encontrado con exito');
+                    return $this->respond($new, 200, 'Noticia encontrada con exito');
                 } else {
-                    return $this->respond('', 404, 'Restaurante no encontrado');
+                    return $this->respond('', 404, 'Noticia no encontrada');
                 }
             } else {
                 $news = $newM->findNews();
                 if ($news) {
-                    return $this->respond($news, 200, 'Restaurantes encontrados con exito');
+                    return $this->respond($news, 200, 'Noticias encontradas con exito');
                 } else {
-                    return $this->respond('', 404, 'Restaurantes no encontrados');
+                    return $this->respond('', 404, 'Noticias no encontradas');
                 }
             }
         } catch (Exception $e) {
