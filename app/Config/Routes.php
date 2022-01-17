@@ -45,7 +45,7 @@ $routes->group('rest', function ($routes) {
     $routes->get('gas-station', 'GasStationController::getGasStation', ['namespace' => API_REST_NAMESPACE]);
 
     //---------- WEATHER ------------------
-    $routes->get('weather', 'WeatherController::getWeather', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('weather', 'WeatherController::getActualWeather', ['namespace' => API_REST_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 

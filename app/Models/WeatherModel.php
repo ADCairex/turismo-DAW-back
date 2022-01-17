@@ -43,4 +43,8 @@ class WeatherModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getActualWeather() {
+        return $this->first();
+    }
 }
