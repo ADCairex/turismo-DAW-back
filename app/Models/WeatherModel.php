@@ -45,6 +45,8 @@ class WeatherModel extends Model
     protected $afterDelete    = [];
 
     public function getActualWeather() {
-        return $this->first();
+        $weathers = $this->findAll();
+        $x = count($weathers);
+        return $weathers[$x-1];
     }
 }

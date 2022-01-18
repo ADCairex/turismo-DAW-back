@@ -56,4 +56,12 @@ class RestaurantsModel extends Model
         return $this->where(['id' => $id])
                     ->first();
     }
+
+    public function getAVG($id=null) {
+        $this->select('reviewAverage');
+    }
+
+    public function calculateNumReviews($id=null) {
+
+    }
 }

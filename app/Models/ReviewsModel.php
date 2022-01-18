@@ -56,9 +56,8 @@ class ReviewsModel extends Model
     }
 
     public function findReviewsByIdRestaurant_Email($idRestaurant=null, $email=null) {
-        return $this->group_start()
-                        ->where(['restaurant_id' => $idRestaurant])
-                        ->where(['email' => $email])
-                    ->group_end();
+        $condition = "email ='$email' AND restaurant_id=$idRestaurant";
+        return $this->where($condition)
+                    ->findAll();
     }
 }
