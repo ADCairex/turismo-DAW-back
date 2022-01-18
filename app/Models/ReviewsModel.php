@@ -45,8 +45,20 @@ class ReviewsModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function findReviewsRestaurants($id=null) {
-        return $this->where(['restaurant_id' => $id])
+    public function findReviewsByIdRestaurant($idRestaurant=null) {
+        return $this->where(['restaurant_id' => $idRestaurant])
                     ->findAll();
+    }
+
+    public function findReviewByIdReview($idReview=null) {
+        return $this->where(['id' => $idReview])
+                    ->first();
+    }
+
+    public function findReviewsByIdRestaurant_Email($idRestaurant=null, $email=null) {
+        return $this->group_start()
+                        ->where(['restaurant_id' => $idRestaurant])
+                        ->where(['email' => $email])
+                    ->group_end();
     }
 }
