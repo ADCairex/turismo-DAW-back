@@ -60,4 +60,9 @@ class ReviewsModel extends Model
         return $this->where($condition)
                     ->findAll();
     }
+
+    public function getRestaurantAvg($idRestaurant=null) {
+        return $this->select_avg('reviewAverage')
+                    ->where(['restaurant_id' => $idRestaurant]);
+    }
 }

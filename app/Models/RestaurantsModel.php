@@ -57,10 +57,6 @@ class RestaurantsModel extends Model
                     ->first();
     }
 
-    public function getAVG($id=null) {
-        $this->select('reviewAverage');
-    }
-
     public function calculateNumReviews($id=null) {
 
     }

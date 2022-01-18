@@ -96,7 +96,7 @@ class ReviewsController extends ResourceController
                         );
                         $newReview = new Reviews($data);
                         $reviewM->save($newReview);
-                        $this->respond('', 200, 'Review creada con exito');
+                        $this->respond('', 200, 'Reseña actualizada con exito');
                     } else {
                         return $this->respond('', 400, 'Falta algun dato obligatorio');
                     }
