@@ -56,8 +56,4 @@ class RestaurantsModel extends Model
         return $this->where(['id' => $id])
                     ->first();
     }
-
-    public function calculateNumReviews($id=null) {
-
-    }
 }

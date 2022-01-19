@@ -60,6 +60,7 @@ $routes->group('rest', function ($routes) {
     $routes->get('reviewByIdReview/(:any)', 'ReviewsController::getReviewsByIdReview/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('reviewByIdRestaurantEmail/(:any)/(:any)', 'ReviewsController::getReviewsByIdRestaurant_Email/$1/$2', ['namespace' => API_REST_NAMESPACE]);
     $routes->post('saveReview', 'ReviewsController::saveReview', ['namespace' => API_REST_NAMESPACE]);
+    $routes->delete('deleteReview', 'ReviewsController::deleteReview', ['namespace' => API_REST_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 

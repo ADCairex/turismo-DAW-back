@@ -12,7 +12,7 @@ class ReviewsModel extends Model
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = Reviews::class;
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = [
         'description',
@@ -62,7 +62,13 @@ class ReviewsModel extends Model
     }
 
     public function getRestaurantAvg($idRestaurant=null) {
-        return $this->select_avg('reviewAverage')
-                    ->where(['restaurant_id' => $idRestaurant]);
+        return $this->where(['restaurant_id' => $idRestaurant])
+                    ->selectAvg('punctuation', 'reviewAvg')
+                    ->first();
+    }
+
+    public function getNumReviews($idRestaurant=null) {
+        return $this->where(['restaurant_id' => $idRestaurant])
+                    ->findAll();
     }
 }
