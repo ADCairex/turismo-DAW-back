@@ -27,7 +27,9 @@ $routes->setAutoRoute(false);
 if (!defined('API_REST_NAMESPACE')) {
     define('API_REST_NAMESPACE', 'App\Controllers\Rest');
 }
-
+if (!defined('COMMAND_NAMESPACE')) {
+    define('COMMAND_NAMESPACE', 'App\Controllers\Command');
+}
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -44,18 +46,18 @@ $routes->group('rest', function ($routes) {
     $routes->get('gas-station/(:any)', 'GasStationController::getGasStation/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('gas-station', 'GasStationController::getGasStation', ['namespace' => API_REST_NAMESPACE]);
 
-    //---------- WEATHER ------------------
+    //------------ WEATHER ----------------
     $routes->get('weather', 'WeatherController::getActualWeather', ['namespace' => API_REST_NAMESPACE]);
 
-    //---------- NEWS ---------------------
+    //-------------- NEWS -----------------
     $routes->get('new/(:any)', 'NewsController::getNew/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('new', 'NewsController::getNew', ['namespace' => API_REST_NAMESPACE]);
 
-    //---------- VIDEOS -------------------
+    //------------- VIDEOS ----------------
     $routes->get('video/(:any)', 'VideosController::getVideo/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('video', 'VideosController::getVideo', ['namespace' => API_REST_NAMESPACE]);
 
-    //---------- REVIEWS ------------------
+    //------------- REVIEWS ------------------
     $routes->get('reviewByIdRestaurant/(:any)', 'ReviewsController::getReviewsByIdRestaurant/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('reviewByIdReview/(:any)', 'ReviewsController::getReviewsByIdReview/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('reviewByIdRestaurantEmail/(:any)/(:any)', 'ReviewsController::getReviewsByIdRestaurant_Email/$1/$2', ['namespace' => API_REST_NAMESPACE]);
@@ -63,12 +65,24 @@ $routes->group('rest', function ($routes) {
     $routes->delete('deleteReview', 'ReviewsController::deleteReview', ['namespace' => API_REST_NAMESPACE]);
 });
 //---------------------------------------------------------------------
-
+//-------------------- COMMAND Routes ---------------------------------
+$routes->group('command', function ($routes) {
+    //------------ GAS STATION ---------------
+    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+    //-------------- WEATHER -----------------
+    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+    //--------------- NEWS -------------------
+    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+    //-------------- VIDEOS ------------------
+    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+});
+//---------------------------------------------------------------------
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
 /*
  * --------------------------------------------------------------------
+// We get a performance increase by specifying the default
  * Additional Routing
  * --------------------------------------------------------------------
  *

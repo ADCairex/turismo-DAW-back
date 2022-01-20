@@ -19,7 +19,7 @@ class GasStationModel extends Model
         'address',
         'latitude',
         'longitude',
-        'idees',
+        'ideess',
     ];
 
     // Dates
@@ -52,6 +52,11 @@ class GasStationModel extends Model
         }
 
         return $this->where(['id' => $id])
+                    ->first();
+    }
+
+    public function findGasStationByIDEESS($ideess=null) {
+        return $this->where(['ideess' => $ideess])
                     ->first();
     }
 }

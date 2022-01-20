@@ -47,3 +47,7 @@ Options All -Indexes
 # Disable server signature start
 	ServerSignature Off
 # Disable server signature end
+
+Header add Access-Control-Allow-Origin '*'
+Header add Access-Control-Allow-Header 'origin, x-requested-with, content-type'
+Header add Access-Control-Allow-Methods 'PUT, GET, DELETE, OPTIONS'
