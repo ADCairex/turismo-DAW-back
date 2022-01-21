@@ -54,4 +54,9 @@ class NewsModel extends Model
         return $this->where(['id' => $id])
                     ->first();
     }
+
+    public function findWeatherByGuid($guid=null) {
+        return $this->where(['guid' => $guid])
+                    ->first();
+    }
 }

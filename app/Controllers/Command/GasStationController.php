@@ -33,7 +33,7 @@ class GasStationController extends BaseController
             $gasStationM = new GasStationModel();
             $gasStation = $gasStationM->findGasStationByIDEESS($i['ideess']);
             if ($gasStation) {
-                array_push($i, $gasStation->id);
+                $i['id'] = $gasStation->id;
                 $gasStationM->save($i);
             } else {
                 $gasStationM->save($i);

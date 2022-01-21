@@ -70,11 +70,9 @@ $routes->group('command', function ($routes) {
     //------------ GAS STATION ---------------
     $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
     //-------------- WEATHER -----------------
-    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+    $routes->cli('weatherCommand', 'WeatherController::weatherCommand', ['namespace' => COMMAND_NAMESPACE]);
     //--------------- NEWS -------------------
-    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
-    //-------------- VIDEOS ------------------
-    $routes->cli('gasStationCommand', 'GasStationController::gasStationCommand', ['namespace' => COMMAND_NAMESPACE]);
+    $routes->cli('newsCommand', 'NewsController::newsCommand', ['namespace' => COMMAND_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 // We get a performance increase by specifying the default
