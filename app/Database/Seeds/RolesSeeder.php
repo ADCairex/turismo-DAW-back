@@ -19,6 +19,10 @@ class RolesSeeder extends Seeder
                 'name'       => 'admin',
                 'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
             ],
+            [
+                'name'       => 'client',
+                'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
+            ],
         ];
 
         $rolesBuilder->insertBatch($roles);

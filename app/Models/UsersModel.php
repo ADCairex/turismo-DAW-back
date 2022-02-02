@@ -45,4 +45,9 @@ class UsersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getUserByUsername($username) {
+        return $this->where(['username' => $username])
+                    ->first();
+    }
 }

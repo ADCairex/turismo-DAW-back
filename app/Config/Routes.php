@@ -38,6 +38,10 @@ if (!defined('COMMAND_NAMESPACE')) {
 
 //----------------- API REST Routes -----------------------------------
 $routes->group('rest', function ($routes) {
+    //------------- USERS -----------------
+    $routes->post('checkUser', 'UsersController::checkUser', ['namespace' => API_REST_NAMESPACE]);
+    $routes->post('user', 'UsersController::createUser', ['namespace' => API_REST_NAMESPACE]);
+    
     //---------- RESTAURANTS --------------
     $routes->get('restaurant/(:any)', 'RestaurantsController::getRestaurant/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('restaurant', 'RestaurantsController::getRestaurant', ['namespace' => API_REST_NAMESPACE]);
