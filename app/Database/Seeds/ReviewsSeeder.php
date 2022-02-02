@@ -17,9 +17,37 @@ class ReviewsSeeder extends Seeder
         $reviews = [
             [
                 'description' => 'El socaterra es un restaurante alicantino con comida tipica mediterranea',
-                'punctuation' => 30,
+                'punctuation' => 5,
                 'email' => 'email example',
-                'restaurant_id' => 1,
+                'restaurant_id' => 2,
+                'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
+            ],
+            [
+                'description' => 'El socaterra es un restaurante alicantino con comida tipica mediterranea',
+                'punctuation' => 3,
+                'email' => 'email example',
+                'restaurant_id' => 2,
+                'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
+            ],
+            [
+                'description' => 'El socaterra es un restaurante alicantino con comida tipica mediterranea',
+                'punctuation' => 3,
+                'email' => 'email example',
+                'restaurant_id' => 2,
+                'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
+            ],
+            [
+                'description' => 'El socaterra es un restaurante alicantino con comida tipica mediterranea',
+                'punctuation' => 3,
+                'email' => 'email example',
+                'restaurant_id' => 2,
+                'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
+            ],
+            [
+                'description' => 'El socaterra es un restaurante alicantino con comida tipica mediterranea',
+                'punctuation' => 3,
+                'email' => 'email example',
+                'restaurant_id' => 2,
                 'created_at' => new Time('now', 'Europe/Madrid', 'es_ES'),
             ],
         ];
