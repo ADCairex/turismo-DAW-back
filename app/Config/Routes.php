@@ -40,6 +40,7 @@ if (!defined('COMMAND_NAMESPACE')) {
 $routes->group('rest', function ($routes) {
     //------------- USERS -----------------
     $routes->post('checkUser', 'UsersController::checkUser', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('existUser/(:any)', 'UsersController::existUser/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->post('user', 'UsersController::createUser', ['namespace' => API_REST_NAMESPACE]);
     
     //---------- RESTAURANTS --------------

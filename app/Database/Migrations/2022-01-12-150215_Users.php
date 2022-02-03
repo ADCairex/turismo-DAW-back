@@ -42,6 +42,7 @@ class Users extends Migration
                 'constraint'     => 5,
                 'unsigned'       => true,
                 'null'           => true,
+                'default'        => '2',
             ],
             'created_at' => [
                 'type' => 'DATETIME',

@@ -10,6 +10,31 @@ use Exception;
 class UsersController extends ResourceController
 {
     // Check if the user exist
+    public function existUser($username=null)
+    {
+        try {
+            $userM = new UsersModel();
+            $request = $this->request;
+            $body = $request->getJSON();
+
+            if($username) {
+                $user = $userM->getUserByUsername($username);
+
+                if($user) {
+                    return $this->respond('true', 200, 'Usuario enontrado');
+                    
+                } else {
+                    return $this->respond('false' , 200, 'Usuario no encontrado');
+                }
+            } else {
+                return $this->respond('', 400, 'Usuario no enviado');
+            }
+        } catch (Exception $e) {
+            return $this->respond('', 500, 'Error intero del servidor');
+        }
+    }
+
+    // Check if the login is correct
     public function checkUser()
     {
         try {
@@ -22,7 +47,7 @@ class UsersController extends ResourceController
 
                 if($user) {
                     if(password_verify($body->password, $user->password)) {
-                        return $this->respond('', 200, 'Usuario y contraseña coinciden');
+                        return $this->respond($user, 200, 'Usuario y contraseña coinciden');
                     } else {
                         return $this->respond('', 404, 'Usuario o contraseña incorrectos');
                     }
@@ -51,8 +76,7 @@ class UsersController extends ResourceController
                     'email' => $body->email,
                     'password' => password_hash($body->password, 1),
                     'name' => $body->name,
-                    'surname' => $body->surname,
-                    'role_id' => 2
+                    'surname' => $body->surname
                 );
                 $newUser = new Users($data);
                 $userM->save($newUser);
