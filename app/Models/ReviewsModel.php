@@ -47,6 +47,7 @@ class ReviewsModel extends Model
 
     public function findReviewsByIdRestaurant($idRestaurant=null) {
         return $this->where(['restaurant_id' => $idRestaurant])
+                    ->orderBy('created_at','desc')
                     ->findAll();
     }
 
