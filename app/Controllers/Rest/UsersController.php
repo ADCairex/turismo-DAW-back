@@ -21,7 +21,7 @@ class UsersController extends ResourceController
                 $user = $userM->getUserByUsername($username);
 
                 if($user) {
-                    return $this->respond('true', 200, 'Usuario enontrado');
+                    return $this->respond('true', 200, 'Usuarihttp://turismo-DAW.com/rest/existUsero enontrado');
                     
                 } else {
                     return $this->respond('false' , 200, 'Usuario no encontrado');

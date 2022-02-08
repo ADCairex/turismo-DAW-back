@@ -41,6 +41,7 @@ $routes->group('rest', function ($routes) {
     //------------- USERS -----------------
     $routes->post('checkUser', 'UsersController::checkUser', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('existUser/(:any)', 'UsersController::existUser/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('existUser', 'UsersController::existUser/$1', ['namespace' => API_REST_NAMESPACE]);
     $routes->post('user', 'UsersController::createUser', ['namespace' => API_REST_NAMESPACE]);
     
     //---------- RESTAURANTS --------------
@@ -64,8 +65,12 @@ $routes->group('rest', function ($routes) {
 
     //------------- REVIEWS ------------------
     $routes->get('reviewByIdRestaurant/(:any)', 'ReviewsController::getReviewsByIdRestaurant/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('reviewByIdRestaurant', 'ReviewsController::getReviewsByIdRestaurant', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('reviewByIdReview/(:any)', 'ReviewsController::getReviewsByIdReview/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('reviewByIdReview', 'ReviewsController::getReviewsByIdReview', ['namespace' => API_REST_NAMESPACE]);
     $routes->get('reviewByIdRestaurantEmail/(:any)/(:any)', 'ReviewsController::getReviewsByIdRestaurant_Email/$1/$2', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('reviewByIdReview/(:any)', 'ReviewsController::getReviewsByIdReview/$1', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('reviewByIdRestaurantEmail', 'ReviewsController::getReviewsByIdRestaurant_Email', ['namespace' => API_REST_NAMESPACE]);
     $routes->post('saveReview', 'ReviewsController::saveReview', ['namespace' => API_REST_NAMESPACE]);
     $routes->delete('deleteReview', 'ReviewsController::deleteReview', ['namespace' => API_REST_NAMESPACE]);
 });
@@ -80,6 +85,7 @@ $routes->group('command', function ($routes) {
     $routes->cli('newsCommand', 'NewsController::newsCommand', ['namespace' => COMMAND_NAMESPACE]);
 });
 //---------------------------------------------------------------------
+
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
