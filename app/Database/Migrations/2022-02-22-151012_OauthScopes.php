@@ -10,9 +10,9 @@ class OauthScopes extends Migration
     {
         $this->forge->addField([
             'scope' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
-                'null' => false
+                'null'       => false
             ],
             'is_default' => [
                 'type' => 'BOOLEAN',

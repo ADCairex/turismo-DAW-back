@@ -30,6 +30,9 @@ if (!defined('API_REST_NAMESPACE')) {
 if (!defined('COMMAND_NAMESPACE')) {
     define('COMMAND_NAMESPACE', 'App\Controllers\Command');
 }
+if (!defined('OAUTH_NAMESPACE')) {
+    define('OAUTH_NAMESPACE', 'App\Controllers\OAuth');
+}
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -40,7 +43,7 @@ if (!defined('COMMAND_NAMESPACE')) {
 $routes->group('rest', function ($routes) {
     //---------- RESTAURANTS --------------
     $routes->get('restaurant/(:any)', 'RestaurantsController::getRestaurant/$1', ['namespace' => API_REST_NAMESPACE]);
-    $routes->get('restaurant', 'RestaurantsController::getRestaurant', ['namespace' => API_REST_NAMESPACE]);
+    $routes->get('restaurant', 'RestaurantsController::getRestaurant', ['filter' => 'oauth2_private', 'namespace' => API_REST_NAMESPACE]);
 
     //---------- GAS STATION --------------
     $routes->get('gas-station/(:any)', 'GasStationController::getGasStation/$1', ['namespace' => API_REST_NAMESPACE]);
@@ -73,6 +76,11 @@ $routes->group('command', function ($routes) {
     $routes->cli('weatherCommand', 'WeatherController::weatherCommand', ['namespace' => COMMAND_NAMESPACE]);
     //--------------- NEWS -------------------
     $routes->cli('newsCommand', 'NewsController::newsCommand', ['namespace' => COMMAND_NAMESPACE]);
+});
+//---------------------------------------------------------------------
+//------------------- OAuth Routes ------------------------------------
+$routes->group('oauth', function ($routes) {
+    $routes->post('oauth_login', 'OAuthController::login', ['namespace' => OAUTH_NAMESPACE]);
 });
 //---------------------------------------------------------------------
 // We get a performance increase by specifying the default

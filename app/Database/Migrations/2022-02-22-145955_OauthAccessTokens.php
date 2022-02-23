@@ -10,17 +10,17 @@ class OauthAccessTokens extends Migration
     {
         $this->forge->addField([
             'access_token' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '40',
-                'null' => false
+                'null'       => false
             ],
             'client_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
-                'null' => false
+                'null'       => false
             ],
             'user_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'expires' => [
@@ -28,7 +28,7 @@ class OauthAccessTokens extends Migration
                 'null' => false
             ],
             'scope' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '4000',
             ]
         ]);

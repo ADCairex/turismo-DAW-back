@@ -10,30 +10,30 @@ class OauthUsers extends Migration
     {
         $this->forge->addField([
             'username' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'password' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'first_name' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'last_name' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80'
             ],
             'email' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'email_verified' => [
                 'type' => 'BOOLEAN',
             ],
             'scope' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '4000'
             ]
         ]);

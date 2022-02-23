@@ -10,28 +10,28 @@ class OauthClients extends Migration
     {
         $this->forge->addField([
             'client_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
-                'null' => false
+                'null'       => false
             ],
             'client_secret' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'redirect_uri' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '2000',
             ],
             'grant_types' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
             'scope' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '4000',
             ],
             'user_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '80',
             ],
         ]);

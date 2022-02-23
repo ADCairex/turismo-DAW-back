@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\OAuth2Private;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -18,11 +19,12 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
+        'csrf'           => CSRF::class,
+        'toolbar'        => DebugToolbar::class,
+        'honeypot'       => Honeypot::class,
+        'invalidchars'   => InvalidChars::class,
+        'secureheaders'  => SecureHeaders::class,
+        'oauth2_private' => OAuth2Private::class
     ];
 
     /**
